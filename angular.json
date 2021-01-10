@@ -125,6 +125,46 @@
           }
         }
       }
+    },
+    "first": {
+      "projectType": "library",
+      "root": "projects/first",
+      "sourceRoot": "projects/first/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/first/tsconfig.lib.json",
+            "project": "projects/first/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/first/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/first/src/test.ts",
+            "tsConfig": "projects/first/tsconfig.spec.json",
+            "karmaConfig": "projects/first/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/first/tsconfig.lib.json",
+              "projects/first/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "omnc"
